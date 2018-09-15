@@ -5,7 +5,7 @@ tags: swift 참조, strong, weak, unowned
 category: swift
 ---
 ![#f03c15](https://placehold.it/15/f03c15/000000?text=+) `#f03c15`
-스위프트에서는 strong, weak, unowned으로 참조를 결정할 수 있다.
+<font color="red">스위프트에서는 strong, weak, unowned으로 참조를 결정할 수 있다.</font>
 
 strong은 강한 참조이다. 
 일반적을 한쪽 객체가 다른 객체를 참조한다면, 어느 한쪽의 객체가 메모리에서 해제될 때 다른 쪽도 자동으로 메모리에서 해제되어야 한다.
