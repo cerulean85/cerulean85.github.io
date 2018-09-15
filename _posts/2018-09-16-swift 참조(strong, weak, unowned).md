@@ -4,7 +4,7 @@ date: 2018-09-15
 tags: swift 참조, strong, weak, unowned 
 category: swift
 ---
-
+![#f03c15](https://placehold.it/15/f03c15/000000?text=+) `#f03c15`
 스위프트에서는 strong, weak, unowned으로 참조를 결정할 수 있다.
 
 strong은 강한 참조이다. 
