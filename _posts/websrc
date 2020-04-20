@@ -1,0 +1,350 @@
+JSTL, JSP, JAVASCRIPT, SPRING FRAMEWORK
+
+이 곳에 소스코드를 하나씩 쓸 때마다 내 연봉이 100원씩 올라간다.
+
+0001. JSTL변수 JSP에서 사용
+<c:set var=“test” value=“테스트” />
+<%
+	String test = (String) pageContext.getAttribute(“test”);
+%>
+
+0001_A. set과 out을 활용한 JSTL 변수의 선언과 출력
+<c:set var="num1" value="10" />
+<c:set var="num2" value="20" />
+<c:set var="res" value="${ num1 + num2 }" />
+<c:out value="${res}" />
+
+
+0002. JSP변수 JSTL에서 사용
+<%
+	String test = “테스트”;
+	pageContext.setAttribute(“test”, test);
+%>
+<c:out value=“${test}”/>
+
+0003. JSP에서 List 혹은 커스텀 클래스 사용하기 위한 import
+<%@ page import=“java.util.*” %>
+<%@ page import=“egovframework.hanki….TestVO” %>
+`
+0004. 동적 사이즈 조절을 위한 JAVASCRIPT, jQuery 소스코드
+jQuery(document).ready(function(e) {
+	$(window).resize(resizeContents);
+	resizeContents();
+});
+
+function resizeContents() {
+	var ww = $(window).width()
+	jQuery(‘#idididid’).width(ww-300);
+}
+
+0005. JAVASCRIPT sessionStorage
+sessionStorage.setItem(‘xxxx’, 0)
+sessionStorage.getItem(‘xxxx’)
+
+0006. JSTL변수 JAVASCRIPT에서 사용하기
+(JAVA > JSTL > HTML > JAVASCRIPT 순으로 컴파일 되므로 JSTL에서는 JAVASCRIPT변수 사용못함)
+
+var AAA = ‘${xman}’;
+alert(AAA);
+
+
+0007. CSS  Ellipsis
+<label style=“width: 300px; white-space: nowrap; overflow: hidden; display: inline-block; text-overflow: ellipsis”>
+
+
+0008. autofill (자동채움) 관련 설정 변경
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+textarea:-webkit-autofill,
+textarea:-webkit-autofill:hover,
+textarea:-webkit-autofill:focus,
+select:-webkit-autofill,
+select:-webkit-autofill:hover,
+select:-webkit-autofill:focus {
+ border: 1px solid green;
+ -webkit-text-fill-color: green;
+ -webkit-box-shadow: 0 0 0px 1000px #000 inset;
+ transition: background-color 5000s ease-in-out 0s;
+}
+
+0009. JAVACRIPT에서 JSTL의 LIST를 ITERATE하기
+<c:forEach items="${MailProfList}" var="item" varStatus="status">
+var num = "${status.count}";
+var name = "${item.ti_name}";
+var type = "${item.ti_flag}";
+var mail = "${item.ti_email}";
+var phone = "${item.ti_hp1}" + "-" + "${item.ti_hp2}" + "-" + "${item.ti_hp3}";
+var id = "${item.ti_num}";
+createRow(num, name, type, mail, phone, id);
+	</c:forEach>
+
+0010. JAVASCRIPT 현재 스크롤 위치를 sessionStorage에 저장
+function viewPaper(index) { 
+	sessionStorage.setItem('requestedPreserveScrollValue', 1)
+	sessionStorage.setItem('pageScroll', $(document).scrollTop());
+	jQuery('form[name=actViewPaper' + +index + ']').submit(); 
+}
+
+
+0011. JAVA 현재 시간 구하기
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        
+출처: https://ra2kstar.tistory.com/123 [초보개발자 이야기.]
+
+0012. JAVASCRIPT 페이지 이동
+@ history.back(): 현재 페이지의 한단계 이전페이지로 이동합니다. 이는 history.go(-1)과 동일합니다.
+@ histroy.go(): 이전 또는 이후 페이지의 이동이 가능합니다. 사용방법은 전달할 인자에 숫자를 넣어 이동하게 됩니다. 1 또는 -1 등을 사용하여 이전 또는 이후로 이동할 수 있습니다.
+@ history.forward(): 이 방법을 사용할 경우 이후 페이지인 다음 페이지로 이동합니다. 동작하는 것은 history.go(1)과 동일합니다. 만약 다음으로 이동할 페이지가 없는 경우 동작하지 않습니다.
+
+0013. HTML table colspan 동적할당
+var colSpan = jQuery('.tbl_list th').length;
+jQuery('#emtpy_line').attr('colspan', colSpan);
+
+0014. JAVASCRIPT PROTOTYPE
+function Engine() {
+	this.property = 'property'; 
+} 
+Engine.prototype.test= function () { alert('test alert'); }
+Engine.prototype.init= function () {
+	
+	//스크롤 위치 지정
+	$(window).on("beforeunload", function(){
+		
+		if(sessionStorage.getItem('requestedPreserveScrollValue') == 0) {
+			sessionStorage.setItem('pageScroll', 0);
+		}
+		sessionStorage.setItem('requestedPreserveScrollValue', 0)
+	    return;
+	});
+
+	var scrollY = sessionStorage.getItem('pageScroll');
+	$('html, body').animate({scrollTop : scrollY}, 0); 
+}; 
+var engine = new Engine();
+
+0015. JAVASCRIPT FORM을 활용한 GET방식 페이지 이동 코드
+var fm = jQuery('#frmList');
+var url = fm.attr('action') + '?' + fm.serialize();
+document.location.href = url;
+
+jQuery UI 다이얼로그 달기
+
+//UI
+<div id="dialog-confirm" title="알림"><span style="padding-top:20px; font-size:16px">교육부 소속 교원/교원전문직이 아닌 일반 학습자께서는 "e-koreatech 사이트"를 이용해주시기 바랍니다.</span></div>
+
+///동작
+$( "#dialog-confirm" ).dialog("open");
+
+//세팅
+$(document).ready(function() {  
+	$( "#dialog-confirm" ).dialog({
+      		dialogClass: 'dPopup',
+      		autoOpen: false,
+      		resizable: false,
+      		height: "auto",
+      		width: 600,
+      		modal: true,
+      		buttons: {
+        			"이어서 가입하기": function() { $( this ).dialog( "close" ); },
+	        		"e-koreatech 바로가기": function() { window.open("https://e-koreatech.step.or.kr"); }
+      		}
+    	});
+});
+
+dext5 설치 (bank)
+<script type="text/javascript" src="/dext5editor/js/dext5editor.js"></script>
+
+<script type="text/javascript">
+DEXT5.config.Width = "100%";
+DEXT5.config.Height = "500px";
+new Dext5editor('discuss_content');
+</script>
+
+jQuery('input[name=discuss_content]').val(DEXT5.getBodyValue('discuss_content'));
+
+jQuery(document).ready(function(e) {	
+  var html = jQuery('input[name=work_content]').val();
+  DEXT5.setBodyValue(html, 'work_content');
+});
+	
+mybatis 올바른 조건문
+<if test='파라미터 != null and 파라미터 == "A"'></if>
+<if test='파라미터 != null and (파라미터 eq "A".toString())'></if>
+<if test='파라미터 != null and 파라미터.equals("A")'></if>
+<if test='파라미터 != null and 파라미터.equalsIgnoreCase("A")'></if>
+출처: https://h0tsource.tistory.com/entry/mybatis-if-에서-parameter-인식 [h0tsource]
+
+
+JSTL 소수점 둘째자리까지 
+<%@taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
+<fmt:formatNumber value="65.153454" pattern=".00"/>
+
+인디케이터 달기
+<script language="javascript" src="/js/loading/jquery-loader.js"></script>
+
+$data = {
+   autoCheck: 32,
+   size: 32,
+   bgColor: '#FFF',
+   bgOpacity: 0.66,
+   fontColor: '#000',
+   title: '  잠시만 기다려주세요...',
+   isOnly: true
+};
+jQuery.loader.open($data);
+
+/src/main/webapp/js/loading 
+복사, 붙여넣기
+
+
+서로 다른 창(window) 간 통신하기
+
+--parent.jsp--
+<script type="text/javascript">
+  //자식창에서 전송되는 데이터 받기
+   window.addEventListener('message', function(e) {
+      //client Test No
+      var cTNoVal = e.data['modified_test_no'];
+      if(cTNoVal == '' || cTNoVal <= 0 || cTNoVal == null || cTNoVal == undefined) return;
+
+      //client Subject
+      var cTSubVal = e.data['modified_test_subject'];
+      if(cTSubVal == null || cTSubVal == undefined) return;
+
+      var cTChVal = e.data['modified_test_ch'];
+      if(cTChVal == null || cTChVal == undefined) return;
+
+      var cTSchVal = e.data['modified_test_sch'];
+      if(cTSchVal == null || cTSchVal == undefined) return;
+
+      var cTLevelVal = e.data['modified_test_level'];
+      if(cTLevelVal == null || cTLevelVal == undefined) return;
+
+      jQuery('#listTable_type1 tr').each(function() {
+
+         //parent Test No
+         var pTNo = jQuery(this).find('.test1_num');
+         if(pTNo == '' || pTNo == null || pTNo == undefined) return true; //== continue임
+
+         //parent Test Subject
+         var pTSub = jQuery(this).find('.test1_sub');
+         if(pTSub == '' || pTSub == null || pTSub == undefined) return true; //== continue임
+
+         var pTChSch = jQuery(this).find('.test1_ch_sch');
+         if(pTChSch == '' || pTChSch == null || pTChSch == undefined) return true; //== continue임
+
+         var pTLevel = jQuery(this).find('.test1_level');
+         if(pTLevel == '' || pTLevel == null || pTLevel == undefined) return true; //== continue임
+
+         var pTNoVal = pTNo.eq(0).val();
+         if(pTNoVal == '' || pTNoVal <= 0 || pTNoVal == null || pTNoVal == undefined) return true; //== continue임
+
+         if(pTNoVal == cTNoVal) {
+            pTSub.eq(0).text(cTSubVal);
+            pTChSch.eq(0).text(cTChVal + ' - ' + cTSchVal);
+
+            var cTLevelTextArr = ['최하', '하', '중', '상', '최상'];
+            pTLevel.eq(0).text(cTLevelTextArr[cTLevelVal-1]);
+         }
+      })
+   })
+</script>
+
+--child.jsp--
+//부모창로부터 전송된 데이터를 처리
+window.addEventListener('message', function(e) {
+     e.date['item_name'] //데이터 호출
+});
+
+//부모창에 데이터 보내기
+var testNum = jQuery('input[name=test_num]').val();
+var testCh = jQuery('select[name=test_ch]').val();
+var testSch = jQuery('select[name=test_sch]').val();
+var testLevel = jQuery('select[name=test_level]').val();
+var contents = DEXT5.getBodyTextValue('test_subject');
+var protocol = location.protocol;
+var host = location.host;
+var url = protocol + '//' + host + '/test/TestList.do';
+
+window.parent.postMessage({
+   modified_test_no: testNum,
+   modified_test_ch: testCh,
+   modified_test_sch: testSch,
+   modified_test_level: testLevel,
+   modified_test_subject: contents,
+}, url);
+
+
+jpg, png 차이
+https://brunch.co.kr/@beusable/103
+
+
+
+드래그를 방지하는 소스코드
+<style type="text/css">
+	.no-drag {
+		-ms-user-select: none;
+		-moz-user-select: -moz-none;
+		-webkit-user-select: none;
+		-khtml-user-select: none;
+		user-select:none;
+	}
+	</style>
+	<div id="container_align" class="no-drag">
+
+
+
+클립보드 초기화
+
+	// Clipboard Clear....
+	var removeClipBoard = function(){
+		setInterval("copyToClipboard();", 600);
+	}
+
+	var copyToClipboard = function() {
+
+		var aux = document.createElement("input");
+		aux.setAttribute("value", "");
+		document.body.appendChild(aux);
+		aux.select();
+		document.execCommand("copy");
+		// Remove it from the body
+		document.body.removeChild(aux);
+		// alert("Print screen disabled!");
+	}
+
+	removeClipBoard()
+	////////////////////////////////////// 여기까지 클립보드 초기화
+
+
+마우스 포인터가 브라우저 밖으로 나가거나 들어올 때 감지
+	$(document).ready(function(){
+		$(document).mouseleave(function() {
+			$('#workContent').css('visibility', 'hidden')
+		})
+
+		$(document).mouseenter(function() {
+			$('#workContent').css('visibility', 'visible')
+		})
+	});
+
+마우스 오른쪽 막기
+	$(document)[0].oncontextmenu = function() {
+			alert('마우스 오른쪽 버튼은 사용할 수 없습니다.')
+			return false;
+		}
+
+복사&붙여넣기 키사용 막기
+	$(document).keydown(function (e) {
+
+			if(event.ctrlKey && (event.keyCode == 67 || event.keyCode == 86)){
+				alert('복사&붙여넣기 기능은 사용할 수 없습니다.')
+		  return false;
+			}
+
+			if(event.shiftKey && event.keyCode == 45) {
+				alert('복사&붙여넣기 기능은 사용할 수 없습니다.')
+				return false;
+			}
+
+	});
