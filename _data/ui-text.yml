@@ -535,7 +535,7 @@ ko: &DEFAULT_KO
   comment_form_comment_label : "댓글"
   comment_form_md_info       : "마크다운을 지원합니다."
   comment_form_name_label    : "이름"
-  comment_form_email_label   : "이메일"
+  comment_form_email_label   : "zhwan85@theimc.co.kr"
   comment_form_website_label : "웹사이트(선택사항)"
   comment_btn_submit         : "댓글 등록"
   comment_btn_submitted      : "등록됨"
