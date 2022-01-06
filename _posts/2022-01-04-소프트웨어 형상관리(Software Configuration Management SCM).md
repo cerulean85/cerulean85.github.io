@@ -5,7 +5,7 @@ tags: github
 category:
 ---
 
-**소프트웨어 형상관리(Software Configuration Management: SCM)**란?
+**소프트웨어 형상관리(Software Configuration Management\: SCM)**란?
 
 코딩할 때 유용한 기능 중 하나는 이전에 작성했던 코드를 되돌리는 UNDO일 것이다.
 근데 UNDO는 텍스트를 쌓아놓는 스택(stack) 공간이 제한되기 때문에 간혹 이전으로 되돌리지 못해 낭패를 겪는 경우가 왕왕 있다.
