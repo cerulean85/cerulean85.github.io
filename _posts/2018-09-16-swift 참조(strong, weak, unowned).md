@@ -5,7 +5,7 @@ tags: swift 참조, strong, weak, unowned
 category: swift
 ---
 
-iOS는 ARC(Automatic Reference Counting, 자동 레퍼런스 카운팅)를 통해 객체 메모리 해제에 참조횟수(refrence count)를 이용한다.
+zzziOS는 ARC(Automatic Reference Counting, 자동 레퍼런스 카운팅)를 통해 객체 메모리 해제에 참조횟수(refrence count)를 이용한다.
 즉, 운영체제는 참조횟수가 0번이 된 객체를 메모리에서 해제한다.
 
 `strong`은 철저하게 참조횟수를 준수한다.
