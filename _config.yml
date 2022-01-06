@@ -103,8 +103,8 @@ author:
   name             : "ZHKim"
   avatar           : "/assets/images/bio-photo.jpg"
   bio              : "웃어라! 온 세상이 너와 함께 웃을 것이다."
-  location         : "Cheonan, Korea"
-  email            : "zinx2@koreatech.ac.kr"
+#  location         : "Cheonan, Korea"
+  email            : "zhwan85@gmail.com"
   links:
     - label: "Email"
       icon: "fas fa-fw fa-envelope-square"
