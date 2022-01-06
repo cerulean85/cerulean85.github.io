@@ -19,7 +19,7 @@ locale                   : "ko-KR"
 title                    : "카르페디엠!"
 title_separator          : "-"
 name                     : "ZHKim"
-description              : "웃어라. 온 세상이 너와 함께 웃을 것이다!"
+description              : "웃어라! 온 세상이 너와 함께 웃을 것이다!"
 url                      : "https://cerulean85.github.io" # the base hostname & protocol for your site e.g. "https://mmistakes.github.io"
 baseurl                  : # the subpath of your site, e.g. "/blog"
 repository               : "cerulean85.github.io" # GitHub username/repo-name e.g. "mmistakes/minimal-mistakes"
@@ -102,7 +102,7 @@ analytics:
 author:
   name             : "ZHKim"
   avatar           : "/assets/images/bio-photo.jpg"
-  bio              : "웃어라.\n 온 세상이 너와 함께 웃을 것이다!"
+  bio              : "웃어라! 온 세상이 너와 함께 웃을 것이다!"
   location         : "Cheonan, Korea"
   email            : "zinx2@koreatech.ac.kr"
   links:
