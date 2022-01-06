@@ -1,5 +1,5 @@
 ---
-title: 소프트웨어 형상관리(Software Configuration Management: SCM)
+title: 소프트웨어 형상관리(Software Configuration Management, SCM)
 date: 2022-01-04
 tags: github 
 category:
