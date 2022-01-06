@@ -2,7 +2,7 @@
 title: 소프트웨어 형상관리(Software Configuration Management: SCM)
 date: 2021-01-04
 tags: github 
-category: scm
+category:
 ---
 
 코딩할 때 유용한 기능 중 하나는 이전에 작성했던 코드를 되돌리는 UNDO일 것이다.
